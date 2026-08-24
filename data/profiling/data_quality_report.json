@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-08-23T09:55:42.137471+00:00",
+  "source_file": "Allocated Limit for Honble MPs.xlsx",
+  "rows": 543,
+  "checks": [
+    {
+      "check": "row_count_is_543",
+      "passed": true,
+      "detail": "rows=543 (Lok Sabha strength)"
+    },
+    {
+      "check": "sr_no_unique",
+      "passed": true,
+      "detail": "unique=543"
+    },
+    {
+      "check": "no_exact_duplicate_records",
+      "passed": true,
+      "detail": "exact business-key duplicates=0"
+    },
+    {
+      "check": "no_missing_state",
+      "passed": true,
+      "detail": "state never null"
+    },
+    {
+      "check": "no_missing_mp_name",
+      "passed": true,
+      "detail": "mp name never null"
+    },
+    {
+      "check": "no_missing_constituency",
+      "passed": true,
+      "detail": "constituency never null"
+    },
+    {
+      "check": "states_all_valid",
+      "passed": true,
+      "detail": "36 distinct states/UTs"
+    },
+    {
+      "check": "amounts_positive_where_present",
+      "passed": true,
+      "detail": "min=49000000.0"
+    },
+    {
+      "check": "amount_within_reasonable_bound",
+      "passed": true,
+      "detail": "max=327,477,390.86 (bound=\u20b960 cr)"
+    },
+    {
+      "check": "grand_total_matches_column_sum",
+      "passed": true,
+      "detail": "stated=83,062,104,294.53 computed=83,062,104,294.53"
+    }
+  ],
+  "failed_checks": [],
+  "data_quality_flags": {
+    "missing_allocation_amount": 1,
+    "amounts_with_paise_component": 119,
+    "names_with_title_prefix": 84,
+    "names_all_caps_or_lower": 311,
+    "names_with_double_spaces": 1,
+    "shared_constituency_names": 2
+  }
+}

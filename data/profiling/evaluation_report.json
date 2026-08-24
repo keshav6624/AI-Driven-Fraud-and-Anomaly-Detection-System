@@ -1,0 +1,385 @@
+{
+  "supervised_metrics": null,
+  "supervised_metrics_note": "No labelled outcomes exist in the source dataset; no supervised accuracy/precision/recall is reported (by design, not omission).",
+  "delay_prediction_capability": {
+    "capability": "project_delay_prediction",
+    "verdict": "NOT_BUILDABLE_WITH_CURRENT_DATASET",
+    "required_field_groups": {
+      "temporal": [
+        "sanction_date",
+        "completion_date_or_due_date"
+      ],
+      "status": [
+        "project_status"
+      ],
+      "financial_context": [
+        "sanctioned_amount_or_expenditure"
+      ]
+    },
+    "missing_by_group": {
+      "temporal": [
+        "sanction_date",
+        "completion_date_or_due_date"
+      ],
+      "status": [
+        "project_status"
+      ],
+      "financial_context": [
+        "sanctioned_amount_or_expenditure"
+      ]
+    },
+    "reason": "Delay prediction needs project-level sanction/completion dates and a status outcome. The provided dataset is one row per Hon'ble MP with the MPLADS entitlement allocation only, so no target variable can be constructed without fabricating data \u2014 which this platform refuses to do.",
+    "recovery_path": "Add MoSPI MPLADS work-report extracts (sanctions with dates, completion status, expenditure) to data/raw/ and re-run pipelines.profile \u2014 the profiler will surface the new schema and this assessment flips to BUILDABLE."
+  },
+  "anomaly_detection": {
+    "method_flag_counts": {
+      "robust_z": {
+        "flagged_count": 153,
+        "threshold": 3.5,
+        "detail": {
+          "median_ratio": 1.0,
+          "mad": 6.802721088435374e-09
+        }
+      },
+      "isolation_forest": {
+        "flagged_count": 28,
+        "threshold": 0.05,
+        "detail": {
+          "n_estimators": 300,
+          "random_state": 42
+        }
+      },
+      "lof": {
+        "flagged_count": 28,
+        "threshold": 0.05,
+        "detail": {
+          "n_neighbors": 50
+        }
+      }
+    },
+    "ensemble": {
+      "flagged_count": 35,
+      "vote_threshold": 2,
+      "score_threshold": 0.8,
+      "flagged_pct": 6.45
+    },
+    "ensemble_score_distribution": {
+      "mean": 0.0665,
+      "p50": 0.016,
+      "p90": 0.1879,
+      "max": 0.8341
+    },
+    "method_agreement": {
+      "robust_z__isolation_forest": {
+        "flag_jaccard": 0.183,
+        "score_spearman": 0.78,
+        "both_flagged": 28
+      },
+      "robust_z__lof": {
+        "flag_jaccard": 0.065,
+        "score_spearman": 0.294,
+        "both_flagged": 11
+      },
+      "isolation_forest__lof": {
+        "flag_jaccard": 0.077,
+        "score_spearman": 0.616,
+        "both_flagged": 4
+      }
+    },
+    "threshold_stability": [
+      {
+        "contamination": 0.01,
+        "flagged_count": 6
+      },
+      {
+        "contamination": 0.02,
+        "flagged_count": 11
+      },
+      {
+        "contamination": 0.05,
+        "flagged_count": 28
+      },
+      {
+        "contamination": 0.08,
+        "flagged_count": 44
+      },
+      {
+        "contamination": 0.1,
+        "flagged_count": 55
+      }
+    ],
+    "bootstrap_stability": {
+      "n_bootstrap": 10,
+      "mean_member_score_std": 0.019,
+      "p95_member_score_std": 0.0482
+    },
+    "manual_validation_sample": [
+      {
+        "member_id": 474,
+        "mp": "SK NURUL ISLAM",
+        "state": "West Bengal",
+        "constituency": "BASIRHAT",
+        "allocation_cr": 4.9,
+        "ensemble_score": 0.8341,
+        "votes": 3,
+        "reasons": [
+          "Allocation is 67% below the full-entitlement benchmark (possible pro-rated term \u2014 verify membership dates)",
+          "3/3 anomaly methods agree (ensemble score 0.83)"
+        ]
+      },
+      {
+        "member_id": 168,
+        "mp": "EATALA RAJENDER",
+        "state": "Telangana",
+        "constituency": "MALKAJGIRI",
+        "allocation_cr": 32.75,
+        "ensemble_score": 0.6673,
+        "votes": 2,
+        "reasons": [
+          "Allocation is 123% above the \u20b914.7 cr full-entitlement benchmark",
+          "Non-round allocation (\u20b986.00 paise component) suggests interest-bearing balance accrual",
+          "2/3 anomaly methods agree (ensemble score 0.67)"
+        ]
+      },
+      {
+        "member_id": 51,
+        "mp": "Arvind Dharmapuri",
+        "state": "Telangana",
+        "constituency": "NIZAMABAD",
+        "allocation_cr": 28.14,
+        "ensemble_score": 0.5466,
+        "votes": 2,
+        "reasons": [
+          "Allocation is 91% above the \u20b914.7 cr full-entitlement benchmark",
+          "Non-round allocation (\u20b911.00 paise component) suggests interest-bearing balance accrual",
+          "2/3 anomaly methods agree (ensemble score 0.55)"
+        ]
+      },
+      {
+        "member_id": 333,
+        "mp": "Pradyut Bordoloi",
+        "state": "Assam",
+        "constituency": "NOWGONG",
+        "allocation_cr": 9.8,
+        "ensemble_score": 0.5462,
+        "votes": 3,
+        "reasons": [
+          "Allocation is 33% below the full-entitlement benchmark (possible pro-rated term \u2014 verify membership dates)",
+          "3/3 anomaly methods agree (ensemble score 0.55)"
+        ]
+      },
+      {
+        "member_id": 57,
+        "mp": "Asit Kumar Mal",
+        "state": "West Bengal",
+        "constituency": "BOLPUR(SC)",
+        "allocation_cr": 27.57,
+        "ensemble_score": 0.5407,
+        "votes": 2,
+        "reasons": [
+          "Allocation is 88% above the \u20b914.7 cr full-entitlement benchmark",
+          "Non-round allocation (\u20b974.00 paise component) suggests interest-bearing balance accrual",
+          "2/3 anomaly methods agree (ensemble score 0.54)"
+        ]
+      },
+      {
+        "member_id": 157,
+        "mp": "DR. RAJESH MISHRA",
+        "state": "Madhya Pradesh",
+        "constituency": "SIDHI",
+        "allocation_cr": 26.27,
+        "ensemble_score": 0.5137,
+        "votes": 2,
+        "reasons": [
+          "Allocation is 79% above the \u20b914.7 cr full-entitlement benchmark",
+          "Non-round allocation (\u20b935.00 paise component) suggests interest-bearing balance accrual",
+          "2/3 anomaly methods agree (ensemble score 0.51)"
+        ]
+      },
+      {
+        "member_id": 413,
+        "mp": "Saptagiri Sankar Ulaka",
+        "state": "Odisha",
+        "constituency": "KORAPUT(ST)",
+        "allocation_cr": 26.95,
+        "ensemble_score": 0.5059,
+        "votes": 2,
+        "reasons": [
+          "Allocation is 83% above the \u20b914.7 cr full-entitlement benchmark",
+          "2/3 anomaly methods agree (ensemble score 0.51)"
+        ]
+      },
+      {
+        "member_id": 381,
+        "mp": "Ramesh Chandappa Jigajinagi",
+        "state": "Karnataka",
+        "constituency": "BIJAPUR(SC)",
+        "allocation_cr": 26.95,
+        "ensemble_score": 0.5059,
+        "votes": 2,
+        "reasons": [
+          "Allocation is 83% above the \u20b914.7 cr full-entitlement benchmark",
+          "2/3 anomaly methods agree (ensemble score 0.51)"
+        ]
+      },
+      {
+        "member_id": 33,
+        "mp": "ANDREW J. SYNGKON",
+        "state": "Meghalaya",
+        "constituency": "SHILLONG",
+        "allocation_cr": 9.8,
+        "ensemble_score": 0.4954,
+        "votes": 3,
+        "reasons": [
+          "Allocation is 33% below the full-entitlement benchmark (possible pro-rated term \u2014 verify membership dates)",
+          "3/3 anomaly methods agree (ensemble score 0.50)"
+        ]
+      },
+      {
+        "member_id": 525,
+        "mp": "VARUN CHAUDHRY",
+        "state": "Haryana",
+        "constituency": "AMBALA (SC)",
+        "allocation_cr": 25.55,
+        "ensemble_score": 0.4714,
+        "votes": 2,
+        "reasons": [
+          "Allocation is 74% above the \u20b914.7 cr full-entitlement benchmark",
+          "2/3 anomaly methods agree (ensemble score 0.47)"
+        ]
+      }
+    ],
+    "false_positive_review_note": "Flagged members are investigative leads. Below-benchmark allocations often reflect legitimate pro-rated terms for members elected via by-elections \u2014 reviewers must confirm membership dates before acting."
+  },
+  "duplicate_detection": {
+    "pairs_evaluated": 97,
+    "pairs_flagged": 1,
+    "threshold_curve": [
+      {
+        "threshold": 0.6,
+        "flagged_pairs": 1
+      },
+      {
+        "threshold": 0.65,
+        "flagged_pairs": 1
+      },
+      {
+        "threshold": 0.7,
+        "flagged_pairs": 1
+      },
+      {
+        "threshold": 0.72,
+        "flagged_pairs": 1
+      },
+      {
+        "threshold": 0.75,
+        "flagged_pairs": 1
+      },
+      {
+        "threshold": 0.8,
+        "flagged_pairs": 0
+      },
+      {
+        "threshold": 0.85,
+        "flagged_pairs": 0
+      }
+    ],
+    "known_case_check": {
+      "verified": true,
+      "pair": "CHAVAN VASANTRAO BALWANTRAO  <->  Ravindra Vasantrao Chavan",
+      "overall_similarity": 0.7633,
+      "note": "Two roster rows share the NANDED constituency and a near-identical name; one row has a blank allocation \u2014 flagged for verification."
+    },
+    "label_policy": "POTENTIAL DUPLICATE \u2014 REQUIRES VERIFICATION"
+  },
+  "risk_scoring": {
+    "level_counts": {
+      "LOW": 486,
+      "MEDIUM": 54,
+      "HIGH": 2,
+      "CRITICAL": 1
+    },
+    "score_distribution": {
+      "mean": 8.84,
+      "p50": 3.4,
+      "p90": 27.7,
+      "max": 59.8
+    }
+  },
+  "run_metadata": {
+    "generated_at": "2026-08-23T10:03:58.083191+00:00",
+    "dataset_version": "raw-2026-08",
+    "feature_version": "v1",
+    "model_version": "v1",
+    "config": {
+      "anomaly": {
+        "contamination": 0.05,
+        "isolation_forest_n_estimators": 300,
+        "isolation_forest_random_state": 42,
+        "lof_n_neighbors": 50,
+        "robust_z_threshold": 3.5,
+        "ensemble_vote_threshold": 2,
+        "ensemble_score_threshold": 0.8
+      },
+      "duplicate": {
+        "name_similarity_weight": 0.6,
+        "constituency_similarity_weight": 0.25,
+        "same_state_weight": 0.15,
+        "pair_threshold": 0.72,
+        "max_pairs_per_member": 3,
+        "min_name_similarity": 0.35
+      },
+      "risk": {
+        "financial_weight": 0.4,
+        "data_quality_weight": 0.25,
+        "duplicate_weight": 0.2,
+        "interest_weight": 0.15,
+        "levels": [
+          [
+            "LOW",
+            25.0
+          ],
+          [
+            "MEDIUM",
+            45.0
+          ],
+          [
+            "HIGH",
+            65.0
+          ]
+        ],
+        "escalate_duplicate_missing": true
+      },
+      "dataset_version": "raw-2026-08",
+      "feature_version": "v1",
+      "model_version": "v1"
+    },
+    "feature_metadata": {
+      "feature_version": "v1",
+      "benchmark_amount": 147000000.0,
+      "model_features": [
+        "benchmark_ratio",
+        "log_amount",
+        "excess_over_benchmark_cr",
+        "shortfall_ratio",
+        "paise_component",
+        "state_deviation_pct",
+        "state_percentile",
+        "amount_missing_ind",
+        "name_quality_score"
+      ],
+      "imputation_policy": "missing amounts imputed to the empirical benchmark ratio=1.0 with an explicit amount_missing indicator",
+      "feature_definitions": {
+        "benchmark_ratio": "allocated_amount / empirical modal allocation",
+        "log_amount": "log10(allocated_amount)",
+        "excess_over_benchmark_cr": "max(amount \u2212 benchmark, 0) in \u20b9 crore",
+        "shortfall_ratio": "max(benchmark \u2212 amount, 0) / benchmark",
+        "paise_component": "sub-rupee (paise) part of the allocation",
+        "state_deviation_pct": "(amount \u2212 state median) / state median",
+        "state_percentile": "percentile rank of amount within state",
+        "amount_missing_ind": "1 when the allocation cell is blank in source",
+        "name_quality_score": "0\u20131 name cleanliness (titles/casing/spacing)"
+      }
+    }
+  }
+}

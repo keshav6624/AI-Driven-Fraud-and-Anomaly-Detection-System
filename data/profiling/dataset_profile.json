@@ -1,0 +1,230 @@
+{
+  "generated_at": "2026-08-23T09:53:52.515161+00:00",
+  "raw_directory": "C:\\Users\\kesha\\Downloads\\test\\mpclad\\data\\raw",
+  "files": [],
+  "cross_file_relationships": [
+    {
+      "file": "Allocated Limit for Honble MPs.xlsx",
+      "table": "Sheet1",
+      "row_count": 543,
+      "candidate_primary_keys": [
+        {
+          "column": "Hon'ble Members of Parliaments",
+          "dtype": "object",
+          "non_null": 543,
+          "missing": 0,
+          "missing_pct": 0.0,
+          "unique": 543,
+          "unique_pct": 100.0,
+          "role": "categorical",
+          "top_values": {
+            "AASHTIKAR PATIL NAGESH BAPURAO": 1,
+            "ABDUL RASHID SHEIKH": 1,
+            "ABHAY KUMAR SINHA": 1,
+            "ABHIJIT GANGOPADHYAY": 1,
+            "Abu Taher Khan": 1,
+            "ADHIKARI SOUMENDU": 1,
+            "ADITYA YADAV": 1,
+            "Adv Adoor Prakash": 1,
+            "Adv Dean Kuriakose": 1,
+            "ADV GOWAAL KAGADA PADAVI": 1,
+            "ADV K FRANCIS GEORGE": 1,
+            "AFZAL ANSARI": 1
+          },
+          "whitespace_issues": 1,
+          "likely_role": "identifier"
+        },
+        {
+          "column": "Constituency",
+          "dtype": "object",
+          "non_null": 543,
+          "missing": 0,
+          "missing_pct": 0.0,
+          "unique": 542,
+          "unique_pct": 99.816,
+          "role": "categorical",
+          "top_values": {
+            "NANDED": 2,
+            "AURANGABAD_BR": 1,
+            "TAMLUK": 1,
+            "MURSHIDABAD": 1,
+            "KANTHI": 1,
+            "BADAUN": 1,
+            "ATTINGAL": 1,
+            "IDUKKI": 1,
+            "NANDURBAR(ST)": 1,
+            "KOTTAYAM": 1,
+            "GHAZIPUR": 1,
+            "SRINAGAR": 1
+          },
+          "whitespace_issues": 0,
+          "likely_role": "identifier"
+        }
+      ],
+      "high_cardinality_categoricals": [
+        "State",
+        "Hon'ble Members of Parliaments",
+        "Constituency"
+      ],
+      "grain": "one row per member of parliament (Sr. No. unique)"
+    }
+  ],
+  "global_notes": [
+    "Single-table dataset: one row per Hon'ble MP with the MPLADS allocated amount. No project-level, transaction-level, date, expenditure or physical-progress fields exist in the provided sources.",
+    "Post-hoc derivation policy: every derived metric used downstream must be traceable to these columns; missing information is documented, never fabricated (see docs/ml_methodology.md)."
+  ],
+  "tables": [
+    {
+      "file": "Allocated Limit for Honble MPs.xlsx",
+      "table": "Sheet1",
+      "sha256": "d9367c15f624de17fdfda677af349ffe9d3bf28f3001556b81bf0db399fcba65",
+      "rows_raw": 544,
+      "rows_excluding_trailers": 543,
+      "trailer_rows": 1,
+      "duplicate_records": 0,
+      "column_count": 5,
+      "header_row_index": 1,
+      "parser_notes": [
+        "openpyxl failed (TypeError); parsed worksheet XML directly"
+      ],
+      "trailer_values": [
+        {
+          "Sr. No.": "Grand Total",
+          "Allocated AMOUNT ( ₹ )": "83062104294.53"
+        }
+      ],
+      "columns": [
+        {
+          "column": "Sr. No.",
+          "dtype": "object",
+          "non_null": 543,
+          "missing": 0,
+          "missing_pct": 0.0,
+          "unique": 543,
+          "unique_pct": 100.0,
+          "role": "numeric",
+          "distribution": {
+            "min": 1.0,
+            "p01": 6.42,
+            "p05": 28.1,
+            "p25": 136.5,
+            "median": 272.0,
+            "p75": 407.5,
+            "p95": 515.9,
+            "p99": 537.58,
+            "max": 543.0,
+            "mean": 272.0,
+            "std": 156.75033226971695
+          },
+          "mode_value": 1.0,
+          "mode_share_pct": 0.18,
+          "zero_count": 0
+        },
+        {
+          "column": "State",
+          "dtype": "object",
+          "non_null": 543,
+          "missing": 0,
+          "missing_pct": 0.0,
+          "unique": 36,
+          "unique_pct": 6.63,
+          "role": "categorical",
+          "top_values": {
+            "Uttar Pradesh": 80,
+            "Maharashtra": 49,
+            "West Bengal": 42,
+            "Bihar": 40,
+            "Tamil Nadu": 39,
+            "Madhya Pradesh": 29,
+            "Karnataka": 28,
+            "Gujarat": 26,
+            "Rajasthan": 25,
+            "Andhra Pradesh": 25,
+            "Odisha": 21,
+            "Kerala": 20
+          },
+          "whitespace_issues": 0
+        },
+        {
+          "column": "Hon'ble Members of Parliaments",
+          "dtype": "object",
+          "non_null": 543,
+          "missing": 0,
+          "missing_pct": 0.0,
+          "unique": 543,
+          "unique_pct": 100.0,
+          "role": "categorical",
+          "top_values": {
+            "AASHTIKAR PATIL NAGESH BAPURAO": 1,
+            "ABDUL RASHID SHEIKH": 1,
+            "ABHAY KUMAR SINHA": 1,
+            "ABHIJIT GANGOPADHYAY": 1,
+            "Abu Taher Khan": 1,
+            "ADHIKARI SOUMENDU": 1,
+            "ADITYA YADAV": 1,
+            "Adv Adoor Prakash": 1,
+            "Adv Dean Kuriakose": 1,
+            "ADV GOWAAL KAGADA PADAVI": 1,
+            "ADV K FRANCIS GEORGE": 1,
+            "AFZAL ANSARI": 1
+          },
+          "whitespace_issues": 1,
+          "likely_role": "identifier"
+        },
+        {
+          "column": "Constituency",
+          "dtype": "object",
+          "non_null": 543,
+          "missing": 0,
+          "missing_pct": 0.0,
+          "unique": 542,
+          "unique_pct": 99.816,
+          "role": "categorical",
+          "top_values": {
+            "NANDED": 2,
+            "AURANGABAD_BR": 1,
+            "TAMLUK": 1,
+            "MURSHIDABAD": 1,
+            "KANTHI": 1,
+            "BADAUN": 1,
+            "ATTINGAL": 1,
+            "IDUKKI": 1,
+            "NANDURBAR(ST)": 1,
+            "KOTTAYAM": 1,
+            "GHAZIPUR": 1,
+            "SRINAGAR": 1
+          },
+          "whitespace_issues": 0,
+          "likely_role": "identifier"
+        },
+        {
+          "column": "Allocated AMOUNT ( ₹ )",
+          "dtype": "object",
+          "non_null": 542,
+          "missing": 1,
+          "missing_pct": 0.184,
+          "unique": 149,
+          "unique_pct": 27.44,
+          "role": "numeric",
+          "distribution": {
+            "min": 49000000.0,
+            "p01": 147000000.0,
+            "p05": 147000000.0,
+            "p25": 147000000.0,
+            "median": 147000000.0,
+            "p75": 147538185.0275,
+            "p95": 186505407.46,
+            "p99": 259743709.34650022,
+            "max": 327477390.86,
+            "mean": 153251114.9345572,
+            "std": 19995481.195482995
+          },
+          "mode_value": 147000000.0,
+          "mode_share_pct": 71.77,
+          "zero_count": 0
+        }
+      ],
+      "leakage_candidates": []
+    }
+  ]
+}
