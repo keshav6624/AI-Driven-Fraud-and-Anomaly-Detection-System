@@ -87,6 +87,7 @@ mpclad/
 
 ---
 SCREENSHOT
+<img width="2864" height="1784" alt="Screenshot 2026-08-24 190912" src="https://github.com/user-attachments/assets/a94d853a-7d2b-489b-bc08-a1993e4cd79e" />
 
 
 
