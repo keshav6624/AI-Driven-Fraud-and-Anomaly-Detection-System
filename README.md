@@ -87,7 +87,21 @@ mpclad/
 
 ---
 SCREENSHOT
-<img width="2864" height="1784" alt="Screenshot 2026-08-24 190912" src="https://github.com/user-attachments/assets/a94d853a-7d2b-489b-bc08-a1993e4cd79e" />
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/a94d853a-7d2b-489b-bc08-a1993e4cd79e" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/ef2137f3-0487-4a51-8e3b-30bd0a2ad39e" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/3f76fd0c-39b3-4b63-aa88-41fbcc4a1aa3" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/0ef83bb4-2c99-4f1f-95e0-a2936354ac41" width="100%"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/578b2e82-0796-4fe2-b3e6-7708d4c32f62" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/49857552-1aea-46ac-bca9-099f473d456b" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/edd9345c-ad2b-454b-bcf4-2433c7d4523e" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/53061f2c-19e1-43a5-8221-21395cbf4307" width="100%"></td>
+  </tr>
+</table>
+
 
 
 
